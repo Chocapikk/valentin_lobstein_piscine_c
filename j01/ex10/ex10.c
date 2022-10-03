@@ -42,28 +42,32 @@ void main(){
 	write(1,number_1,strlen(number_1));
 
 	do {
-      i = scanf("%lf", &a);
-      if (i == 1) {
+    	i = scanf("%lf", &a);
+    	if (i == 1) {
         write(1,congrat,strlen(congrat));
-      }
-      else {
-        write(1,nope,strlen(nope));
+    }
+
+    else {
+    	write(1,nope,strlen(nope));
 		discard_junk();
-	  }
+	}
+	
 	} while(i != 1);
 
 	write(1,"\n",strlen("\n"));
 	
 	write(1,number_2,strlen(number_2));
 	do {
-      i = scanf("%lf", &b);
-      if (i == 1) {
-        write(1,congrat,strlen(congrat));
-      }
-      else {
-        write(1,nope,strlen(nope));
+    	i = scanf("%lf", &b);
+      	if (i == 1) {
+        	write(1,congrat,strlen(congrat));
+      	}
+
+    else {
+    	write(1,nope,strlen(nope));
 		discard_junk();
 	  }
+
 	} while(i !=1);
 
     write(1,"\n",strlen("\n"));
