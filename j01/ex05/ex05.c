@@ -9,7 +9,7 @@ int o_charpos(char *str,char c){
 
 		if(str[i] == c){
 
-			return i;
+			return i+1;
 	
 		}
 
