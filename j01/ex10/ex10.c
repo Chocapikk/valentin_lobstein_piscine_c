@@ -44,14 +44,14 @@ void main(){
 	do {
     	i = scanf("%lf", &a);
     	if (i == 1) {
-        write(1,congrat,strlen(congrat));
-    }
+        	write(1,congrat,strlen(congrat));
+    	}
 
-    else {
-    	write(1,nope,strlen(nope));
-		discard_junk();
-	}
-	
+    	else {
+    		write(1,nope,strlen(nope));
+			discard_junk();
+		}
+
 	} while(i != 1);
 
 	write(1,"\n",strlen("\n"));
@@ -63,10 +63,10 @@ void main(){
         	write(1,congrat,strlen(congrat));
       	}
 
-    else {
-    	write(1,nope,strlen(nope));
-		discard_junk();
-	  }
+    	else {
+    		write(1,nope,strlen(nope));
+			discard_junk();
+	  	}
 
 	} while(i !=1);
 
