@@ -10,7 +10,7 @@ long o_arrsum(int *arr, int size){
 
 	for (int i = 0; i < size; i++){
 		result += (long) arr[i];
-		printf("%ld\n",result);
+		/*printf("%ld\n",result);*/
 	}
 
 return result;
