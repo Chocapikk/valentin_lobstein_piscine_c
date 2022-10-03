@@ -34,6 +34,7 @@ void main(){
 	int choice = 0;
 	int i = 0;
 	char *congrat = "Good Value :)";
+	char *nope = "Please enter an integer hacker ~$ ";
 	char *choice_list = "\n1) Add\n2) Substract\n3) Multiply\n4) Divide\nChoose an option : ";
 	char *number_1 = "Choose number 1 ~$ ";
 	char *number_2 = "Choose number 2 ~$ ";
@@ -46,7 +47,7 @@ void main(){
         write(1,congrat,strlen(congrat));
       }
       else {
-        printf("Please enter an integer hacker ~$ ");
+        write(1,nope,strlen(nope));
 		discard_junk();
 	  }
 	} while(i != 1);
@@ -60,7 +61,7 @@ void main(){
         write(1,congrat,strlen(congrat));
       }
       else {
-        printf("Please enter an integer hacker ~$ ");
+        write(1,nope,strlen(nope));
 		discard_junk();
 	  }
 	} while(i !=1);
