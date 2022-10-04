@@ -52,7 +52,7 @@ int o_strcmp(const char * str1,
   return (str_cp1[i] - str_cp2[i]);
 }
 
-void o_reverse_str_table(char * arr, char size) {
+/*void o_reverse_str_table(char * arr, char size) {
   char * temp;
   int j = size - 1;
   for (int i = 0; i < j; i++) {
@@ -63,6 +63,7 @@ void o_reverse_str_table(char * arr, char size) {
   }
 
 }
+*/
 
 void sort(int argc, char ** argv) {
   int i, j;
