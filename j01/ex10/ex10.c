@@ -19,7 +19,9 @@ double multiply(double a, double b) {
 }
 
 double divide(double a, double b) {
+  
   return a / b;
+  
 }
 
 void discard_junk() {
@@ -33,6 +35,7 @@ void main() {
   double result;
   int choice = 0;
   int i = 0;
+  char *div_error = "Error, Can't divide by zero ! \n";
   char * congrat = "Good Value :)";
   char * nope = "Please enter an integer hacker ~$ ";
   char * choice_list = "\n1) Add\n2) Substract\n3) Multiply\n4) Divide\nChoose an option : ";
@@ -74,13 +77,17 @@ void main() {
   }
 
   if (choice == 1)
-    result = add(a, b);
+    printf("Answer is : %lf\n", add(a, b));
   if (choice == 2)
-    result = substract(a, b);
+    printf("Answer is : %lf\n", substract(a, b));
   if (choice == 3)
-    result = multiply(a, b);
+    printf("Answer is : %lf\n", multiply(a, b));
   if (choice == 4)
-    result = divide(a, b);
-  printf("Answer is : %lf\n", result);
-
+    if (b!=0){
+      result = divide(a, b);
+      printf("Answer is : %lf\n", result);
+    }
+    else
+      write(1,div_error,strlen(div_error));
+    
 }
