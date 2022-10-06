@@ -1,6 +1,12 @@
 #include <stdlib.h>
 #include <unistd.h>
-#include "o_linked_list.h"
+
+typedef struct Chain{
+
+    void *data;
+    struct Chain *next;
+
+} Chain;
 
 void o_print_string(char * str) {
   int i;
@@ -47,13 +53,13 @@ Chain * o_new_list(){
 }
 
 
-Chain * o_add_node(Chain * list, char* e){
+Chain * o_add_node(Chain * list, char * e){
 
     Chain * first_node;
 
     first_node = (Chain *) malloc(sizeof(Chain));
-    first_node->data = e;
-    first_node->next = list;
+    first_node -> data = e;
+    first_node -> next = list;
 
     return first_node;
 
@@ -63,15 +69,31 @@ Chain * o_add_node(Chain * list, char* e){
 void o_display(Chain * list){
 
     Chain * ptr = list;
-
-    o_print_string("List --> ");
+   
 
     while(ptr != NULL){
-
-        o_print_number(ptr->data);
-        ptr = ptr->next; 
+        o_print_string("List --> ");
+        o_print_string(ptr -> data);
+        ptr = ptr-> next; 
+        o_print_string("\n");
     }
     
-    o_print_string('\n');
 
+
+}
+
+int main(){
+
+    Chain * my_list;
+
+    my_list = o_new_list();
+
+    my_list = o_add_node(my_list,"Test1\n");
+    my_list = o_add_node(my_list,"Test2\n");
+    my_list = o_add_node(my_list,"Test3\n");
+
+    o_display(my_list);
+    free(my_list);
+
+    return EXIT_SUCCESS;
 }
