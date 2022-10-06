@@ -68,5 +68,6 @@ void main(){
   char *result = o_strjoin(3,array,"---->\n");
 
   o_print_string(result);
-
+  
+  free(result);
 }
