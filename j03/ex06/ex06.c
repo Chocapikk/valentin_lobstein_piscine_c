@@ -6,7 +6,7 @@ typedef struct Chain{
     void *data;
     struct Chain *next;
 
-} *head;
+} Chain;
 
 void o_print_string(char * str) {
   int i;
@@ -73,17 +73,19 @@ Chain * o_add_node_end(Chain * list, char * e){
     
     if (first_node != NULL){
 
-        first_node -> data = data;
+        first_node -> data = e;
         first_node -> next = NULL;
 
-        temp = head;
+        temp = Chain;
 
         while(temp != NULL && temp->next != NULL)
             temp = temp -> next;
 
         temp -> next = first_node;
-         
+        
     }
+
+    return first_node;
 }
 
 
@@ -109,9 +111,9 @@ int main(){
 
     my_list = o_new_list();
 
-    my_list = o_add_node(my_list,"Test1\n");
-    my_list = o_add_node(my_list,"Test2\n");
-    my_list = o_add_node(my_list,"Test3\n");
+    my_list = o_add_node_end(my_list,"Test1\n");
+    my_list = o_add_node_end(my_list,"Test2\n");
+    my_list = o_add_node_end(my_list,"Test3\n");
 
     o_display(my_list);
     free(my_list);
