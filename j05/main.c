@@ -12,6 +12,35 @@ int o_digit_to_int(char d){
     return (int) strtol(str, NULL, 10);
 }
 
+char *get_user_sign(int user){
+
+    switch(user){
+        
+        case 0:
+            return "  ";
+        case 1:
+            return "X ";
+            break;
+        case 2 :
+            return "O ";
+            break;
+        default:
+            return " ";
+
+    }
+
+}
+
+void change_player_time(int *player){
+
+    if (*player == 1)
+        *player = 2;
+
+    else if(*player == 2)
+        *player = 1;
+
+
+}
 
 void display(int **tic_tac_toe){ 
 
@@ -24,19 +53,8 @@ void display(int **tic_tac_toe){
             
             printf(" | ");
 
-            switch(tic_tac_toe[i][j]){
+            printf("%s", get_user_sign(tic_tac_toe[i][j]));
 
-                case 0:
-                    printf("  ");
-                    break;
-                case 1:
-                    printf("X ");
-                    break;
-                case 2 :
-                    printf("O ");
-                    break;
-
-            }        
         }
 
         printf(" | %d", i + 1);
@@ -49,21 +67,14 @@ void display(int **tic_tac_toe){
 
 }
 
+
+
 void fill_cell(char *cell, int **tic_tac_toe, int *player){
     
     int i,j;
     
     /*printf("Avant : %d\n\n", player);*/
-
-    if (*player == 1)
-        *player = 2;
-
-    else if(*player == 2)
-        *player = 1;
-
-    else
-        printf("Something bad happened !\n");
-
+    change_player_time(player);
     /*printf("Après : %d\n\n", player);*/
 
     if (strlen(cell) > 2 || strlen(cell) < 1){
@@ -76,7 +87,7 @@ void fill_cell(char *cell, int **tic_tac_toe, int *player){
        
         i = o_digit_to_int(cell[1]) - 1;
         j = o_digit_to_int(cell[0]) - 1;
-
+        
         if(i >= 0 && i <=2 && j >= 0 && j <=2){
 
             if (tic_tac_toe[i][j] == 0){
@@ -117,13 +128,53 @@ int **init_game(){
 }
 
 
+void check_winner(int **tic_tac_toe, int *player){
+
+    change_player_time(player);
+    char *player_sign = get_user_sign(*player);
+    int count_column = 0;
+
+    printf("Player Sign ------------------------ %s\n\n",player_sign);
+
+    /*for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+
+            if(tic_tac_toe[0][j] == *player_sign){
+                count_column++;
+                printf("OOOOOOOOOOOOOOO\n");
+            }
+
+            else{
+                count_column = 0;
+            }
+        }
+        if(count_column == 3)
+            printf("Player %d won this party !", *player);
+    }
+    */
+
+    change_player_time(player);    
+
+}
+    
+
+
+
+
+
+
+
+
+
+
+
+
 int main(){
 
     system("clear"); 
 
-    printf("Welcome to the Tic Tac Toe game, please type something to start !...");
-    
-    scanf("%s");
+    printf("Welcome to the Tic Tac Toe game, press Enter to start !...\n\n");
+    while(getchar() != '\n');
 
     char fill_test[100];
     int player = 1;
@@ -137,6 +188,7 @@ int main(){
         printf("\n");
 
         fill_cell(fill_test, tic_tac_toe, &player);
+        check_winner(tic_tac_toe, &player);
     }
     
     return EXIT_SUCCESS;
